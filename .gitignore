@@ -1,60 +1,13 @@
-
-Skip to content
-
-This repository
- 
-Pull requests 
-Issues 
-Gist
-
-
-
-
-
- Watch 
-1,933 
- Star 
-45,246 
- Fork 
-18,545 
-
-github/gitignore 
- Code 
- Pull requests 186 
- Projects 0 
- Pulse 
- Graphs 
-Branch: master 
-Find file 
-Copy path
-gitignore/C.gitignore 
-326dc28 on Oct 4 2016 
- Leandros Merge branch 'master' into HEAD 
-11 contributors 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-Raw
-Blame
-History
-   
-52 lines (43 sloc) 415 Bytes 
-
 # Prerequisites
 
 *.d
-
-
-
+*.lst
+*.crf
+*.axf
+*.htm
+*.dep
+*.TMP
+*.lnp
 # Object files
 
 *.o
@@ -150,6 +103,3 @@ Module.symvers
 Mkfile.old
 
 dkms.conf
-Contact GitHub API Training Shop Blog About 
-
-© 2017 GitHub, Inc. Terms Privacy Security Status Help 
