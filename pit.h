@@ -1,3 +1,3 @@
 #include "MKL46Z4.h"
 
-void TPMInit(void);
+void PITInit(void);

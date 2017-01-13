@@ -1,6 +1,6 @@
 #include "MKL46Z4.h"
 #include "slcd.h"
-#include "tpm.h"
+#include "pit.h"
 #include "buttons.h"
 
 int main(void)
