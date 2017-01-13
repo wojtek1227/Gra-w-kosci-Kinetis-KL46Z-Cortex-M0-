@@ -207,19 +207,19 @@ void slcdSet(uint8_t value, uint8_t digit){
 	}
 }
 
-void slcdSetDot(uint8_t value, int8_t digit){	
+void slcdSetDot(uint8_t value, int8_t position){	
 
-	if((value == 0)&&(digit <= 4))
+	if((value == 0)&&(position <= 4))
 	{
-			LCD->WF8B[LCD_Front_Pin[((2*digit)-2)]] &= (~0); 
-			LCD->WF8B[LCD_Front_Pin[((2*digit)-1)]] &= (~LCD_S_DEC);
+			LCD->WF8B[LCD_Front_Pin[((2*position)-2)]] &= (~0); 
+			LCD->WF8B[LCD_Front_Pin[((2*position)-1)]] &= (~LCD_S_DEC);
 	}
-	else if((value == 1)&&(digit <= 4))
+	else if((value == 1)&&(position <= 4))
 	{
-			LCD->WF8B[LCD_Front_Pin[((2*digit)-2)]] |= (0); 
-			LCD->WF8B[LCD_Front_Pin[((2*digit)-1)]] |= (LCD_S_DEC);
+			LCD->WF8B[LCD_Front_Pin[((2*position)-2)]] |= (0); 
+			LCD->WF8B[LCD_Front_Pin[((2*position)-1)]] |= (LCD_S_DEC);
 	}
-	if(digit>4){ 
+	if(position>4){ 
 		slcdErr(1);
 	}
 }

@@ -12,7 +12,6 @@
 
 #include "MKL46Z4.h"   /* Device header */
 
-
 #define LCD_N_FRONT 8
 // Definition of segments, each 7-segments (4 digits) is controled by two pins
 // Pin 1 -> (2*digit - 1), Pin 2 -> (2*digit - 2)
@@ -45,7 +44,7 @@ const static uint8_t LCD_Front_Pin[LCD_N_FRONT] = {LCD_FRONT0, LCD_FRONT1, LCD_F
 void slcdInitialize(void);
 void slcdErr(uint8_t number);
 void slcdSet(uint8_t value,uint8_t digit);
-void slcdSetDot(uint8_t value, int8_t digit);
+void slcdSetDot(uint8_t value, int8_t position);
 void slcdDisplay(uint16_t value,uint16_t format);
 void slcdClear(void);
 
