@@ -10,11 +10,11 @@ int main(void)
 	slcdInitialize();
 	ledsInit();
 	redLEDOn();
-	
+	buttonsInit();
 	slcdDisplay(1234,10);
 	while(1)
 	{
-		for( i = 0; i < 300000; i++){};
-			greenLEDToggle();
+//		for( i = 0; i < 300000; i++){};
+//			greenLEDToggle();
 	}
 }
