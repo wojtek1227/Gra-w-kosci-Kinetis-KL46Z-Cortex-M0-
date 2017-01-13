@@ -251,16 +251,4 @@ void slcdClear(void){
 		LCD->WF8B[LCD_Front_Pin[i]] = LCD_C;
 	}
 }
-/*----------------------------------------------------------------------------
-  Function for demo purpose
- *----------------------------------------------------------------------------*/
-void slcdDemo(void){	
-	uint8_t i;
-	
-	for(i=0; i < 0x10; i++){
-		slcdClear();
-		slcdSet(i, i%4 + 1);
-		delay_mc(300);
-		slcdClear();
-	}
-}
+
