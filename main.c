@@ -4,16 +4,21 @@
 #include "buttons.h"
 #include "leds.h"
 
+//volatile uint16_t kosc;
 
 int main(void)
 {
-	int i;
+	//kosc = 0;
 	slcdInitialize();
 	ledsInit();
 	redLEDOn();
+	PITInit();
 	buttonsInit();
 	slcdDisplay(1234,10);
 	while(1)
 	{
+		
+		//slcdDisplay((uint16_t)ReadPIT,10);
 	}
 }
+
