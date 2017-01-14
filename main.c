@@ -4,6 +4,7 @@
 #include "buttons.h"
 #include "leds.h"
 
+
 int main(void)
 {
 	int i;
@@ -14,7 +15,5 @@ int main(void)
 	slcdDisplay(1234,10);
 	while(1)
 	{
-//		for( i = 0; i < 300000; i++){};
-//			greenLEDToggle();
 	}
 }

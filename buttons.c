@@ -1,11 +1,15 @@
 #include "buttons.h"
 #include "leds.h"
+#include "slcd.h"
+//#include "pit.h"
 
 void PORTC_PORTD_IRQHandler(void)
 {
+	static uint8_t x;
 	if (button1Read())
 	{
 		redLEDToggle();
+		slcdDisplay(kosc,10);
 	}
 	if (button3Read())
 	{
