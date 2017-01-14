@@ -5,11 +5,11 @@
 
 void PORTC_PORTD_IRQHandler(void)
 {
-	static uint8_t x;
+	//static uint8_t x;
 	if (button1Read())
 	{
 		redLEDToggle();
-		slcdDisplay(kosc,10);
+		//slcdDisplay(kosc,10);
 	}
 	if (button3Read())
 	{
