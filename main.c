@@ -25,6 +25,7 @@ int main(void)
 	buttonsInit();
 
 	Game(Players);
+
 	//slcdDotsOff();
 	while(1)
 	{
