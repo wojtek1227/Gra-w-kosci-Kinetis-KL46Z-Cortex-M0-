@@ -23,12 +23,12 @@ typedef struct s_player
 
 //Global Variables
 
-extern volatile player Players[NUMBEROFPLAYERS];
+//extern volatile player Players[NUMBEROFPLAYERS];
 extern volatile player * current_player;
 
 //Functions
 
-void Game(void);
+void Game(volatile player * Players);
 //Move functions
 void Move(volatile player * player_ptr);
 void Roll(volatile player *player_ptr);

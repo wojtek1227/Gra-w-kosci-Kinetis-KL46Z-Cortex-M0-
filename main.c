@@ -9,11 +9,12 @@
 #include "game.h"
 
 volatile uint16_t random;
-volatile player Players[NUMBEROFPLAYERS];
+
 volatile player * current_player;
 
 int main(void)
 {
+	volatile player Players[NUMBEROFPLAYERS];
 	Players[0].ledOn = redLEDOn;
 	Players[0].ledOff = ledsOff;
 	Players[1].ledOn = greenLEDOn;
@@ -23,7 +24,7 @@ int main(void)
 	PITInit();
 	buttonsInit();
 
-	Game();
+	Game(Players);
 	//slcdDotsOff();
 	while(1)
 	{
