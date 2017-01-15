@@ -2,7 +2,11 @@
 #define pit_h
 
 #include "MKL46Z4.h"
-extern volatile uint16_t kosc;
+#include "slcd.h"
+
+
+extern volatile uint16_t random;
 
 void PITInit(void);
+uint8_t Random(void);
 #endif

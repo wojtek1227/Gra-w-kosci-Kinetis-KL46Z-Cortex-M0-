@@ -252,3 +252,12 @@ void slcdClear(void){
 	}
 }
 
+void slcdDotsOff(void)
+{
+	uint8_t i;
+	
+	for(i=1; i < 5; i++)
+	{
+		slcdSetDot(0,i);
+	}
+}

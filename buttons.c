@@ -1,25 +1,24 @@
 #include "buttons.h"
-#include "leds.h"
-#include "slcd.h"
-//#include "pit.h"
+#include "pit.h"
+#include "game.h"
 
 void PORTC_PORTD_IRQHandler(void)
 {
-	//static uint8_t x;
 	if (button1Read())
 	{
-		redLEDToggle();
-		//slcdDisplay(kosc,10);
+		if (current_player->iterator < 4)
+		{
+			current_player->Table[current_player->iterator] = Random();
+		}
+		current_player->iterator++;
 	}
 	if (button3Read())
 	{
-		greenLEDToggle();
+		current_player->iterator++;
 	}
 	PORTC->PCR[SW1_PIN] |= PORT_PCR_ISF_MASK;
 	PORTC->PCR[SW3_PIN] |= PORT_PCR_ISF_MASK;
 }
-
-
 
 void buttonsInit(void)
 {
