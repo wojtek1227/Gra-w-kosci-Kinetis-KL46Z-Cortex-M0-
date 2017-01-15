@@ -1,6 +1,6 @@
 #include "game.h"
 
-void Game(void)
+void Game(volatile player * Players)
 {
 	uint8_t i;
 	for(i = 0;i < NUMBEROFPLAYERS;i++)
