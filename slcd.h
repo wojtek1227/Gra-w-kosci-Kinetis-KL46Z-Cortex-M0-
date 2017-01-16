@@ -48,5 +48,5 @@ void slcdSetDot(uint8_t value, int8_t position);
 void slcdDisplay(uint16_t value,uint16_t format);
 void slcdClear(void);
 void slcdDotsOff(void);
-
+void Winner(uint8_t number);
 #endif

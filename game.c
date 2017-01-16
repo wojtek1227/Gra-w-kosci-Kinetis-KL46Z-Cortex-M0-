@@ -12,6 +12,7 @@ void Game(volatile player * Players)
   }
 	i=WhoWon(Players);
 	DisplayWinner(i);
+	while (current_player->iterator < 6) {}
 }
 
 void Move(volatile player * player_ptr)
@@ -128,6 +129,7 @@ uint8_t Max(volatile player *player_ptr)
 void CountScore(volatile player *player_ptr)
 {
 	uint8_t max, index;
+	uint8_t i ;
 	CountDice(current_player);
 	max = Max(player_ptr);
 	switch (max)
@@ -173,7 +175,12 @@ void CountScore(volatile player *player_ptr)
 					}
 					else {
 						player_ptr->Category = 0;
-						player_ptr->Score = Value2Index(current_player, max)+1;// najwieksza wykulana liczba
+						for(i = 0 ; i< VALUES ; i++){
+								if(0 != player_ptr->ValuesOfDice[i]){
+									player_ptr->Score += (i+1);
+								}
+						}
+						//player_ptr->Score = Value2Index(current_player, max)+1;// najwieksza wykulana liczba
 					}						
   		break;
   	default:
@@ -202,9 +209,9 @@ uint8_t WhoWon(volatile player * Players){
 
 	void DisplayWinner(uint8_t cos){//zbiera co co sie wkonalo w whoWon
 		if (2==cos)
-			slcdErr(2);
+			Winner(2);
 		else if (1==cos)
-			slcdErr(1);
+			Winner(1);
 		else
-			slcdErr(3);
+			Winner(0);
 	}
