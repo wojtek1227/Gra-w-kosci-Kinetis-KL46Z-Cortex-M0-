@@ -130,30 +130,30 @@ void CountScore(volatile player *player_ptr)
 {
 	uint8_t max, index;
 	uint8_t i ;
-	CountDice(current_player);
+	CountDice(player_ptr);
 	max = Max(player_ptr);
 	switch (max)
   {
   	case 4://We're looking for Four Of A Kind
 					// 
 					player_ptr->Category = 7;
-					player_ptr->Score = Value2Index(current_player, max)+1;
+					player_ptr->Score = Value2Index(player_ptr, max)+1;
   		break;
   	case 3://We're looking for Three Of A Kind
 					player_ptr->Category = 3;
-					player_ptr->Score = Value2Index(current_player, max)+1;
+					player_ptr->Score = Value2Index(player_ptr, max)+1;
   		break;
 		case 2://We're looking for Two Pairs or Pair
-					if( 1 == CountPairs(current_player)){
+					if( 1 == CountPairs(player_ptr)){
 						player_ptr->Category = 1; // jedna para
-						player_ptr->Score = Value2Index(current_player, max)+1;
+						player_ptr->Score = Value2Index(player_ptr, max)+1;
 					}
-					else if ( 2 == CountPairs(current_player)){
+					else if ( 2 == CountPairs(player_ptr)){
 						player_ptr->Category = 2; // dwie pary
-						player_ptr->Score = Value2Index(current_player, max)+1;
+						player_ptr->Score = Value2Index(player_ptr, max)+1;
 						index = player_ptr->Score;
 						player_ptr->ValuesOfDice[index] = 0; // czyszcze tablice w tym miejscy gdzie znalazlo i szukam nastepnej
-						player_ptr->Score += Value2Index(current_player, max)+1;
+						player_ptr->Score += Value2Index(player_ptr, max)+1;
 						player_ptr->ValuesOfDice[index] = max;
 					}
 					else
@@ -161,11 +161,11 @@ void CountScore(volatile player *player_ptr)
 					slcdErr(1);
   		break;
 		case 1://We're looking for any of Straights
-					if(3 == Value2Index(current_player, 1)){
+					if(3 == Value2Index(player_ptr, 1)){
 						player_ptr->Category = 4; // maly straight
 						player_ptr->Score = 0;
 					}
-					else if(5 == Value2Index(current_player, 0) && 0==*(player_ptr->ValuesOfDice)){
+					else if(5 == Value2Index(player_ptr, 0) && 0==*(player_ptr->ValuesOfDice)){
 						player_ptr->Category = 5; // sredni straight
 						player_ptr->Score = 0;
 					}
@@ -207,10 +207,10 @@ uint8_t WhoWon(volatile player * Players){
 
 	}	
 
-	void DisplayWinner(uint8_t cos){//zbiera co co sie wkonalo w whoWon
-		if (2==cos)
+	void DisplayWinner(uint8_t winner){//zbiera co co sie wkonalo w whoWon
+		if (2==winner)
 			Winner(2);
-		else if (1==cos)
+		else if (1==winner)
 			Winner(1);
 		else
 			Winner(0);
