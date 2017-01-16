@@ -12,7 +12,7 @@
 
 typedef struct s_player
 {
-	uint8_t Score;
+	uint8_t Score ;
 	uint8_t Table[DICE];
 	uint8_t iterator;// 0 to 3/
 	uint8_t ValuesOfDice[VALUES];
@@ -38,8 +38,9 @@ void DisplayTable(volatile player *player_ptr);
 void ClearValuesOfDice(volatile player *player_ptr);
 void CountDice(volatile player *player_ptr);
 uint8_t Value2Index(volatile player *player_ptr, uint8_t value);
+uint8_t CountPairs(volatile player *player_ptr);
 uint8_t Max(volatile player *player_ptr);
 void CountScore(volatile player *player_ptr);
-
-
+uint8_t WhoWon(volatile player * Players);
+	void DisplayWinner(uint8_t cos);
 #endif

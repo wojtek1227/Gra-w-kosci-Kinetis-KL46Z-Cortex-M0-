@@ -24,10 +24,12 @@ int main(void)
 	PITInit();
 	buttonsInit();
 
-	Game(Players);
+	//Game(Players);
+
 	//slcdDotsOff();
 	while(1)
 	{
+		Game(Players);
 		//slcdDisplay(current_player->iterator,10);
 		//slcdDisplay((uint16_t)ReadPIT,10);
 	}

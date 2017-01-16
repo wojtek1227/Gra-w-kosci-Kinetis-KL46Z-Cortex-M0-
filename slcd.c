@@ -79,8 +79,8 @@ void slcdInitialize(void){
   Function that outputs on sLCD (number) error message for debug purpose
  *----------------------------------------------------------------------------*/
 void slcdErr(uint8_t number){
-	LCD->WF8B[LCD_Front_Pin[0]] = (LCD_S_G | LCD_S_E | LCD_S_D | LCD_S_F); //1st digit
-	LCD->WF8B[LCD_Front_Pin[1]] = (LCD_S_A);
+	LCD->WF8B[LCD_Front_Pin[0]] = (LCD_S_G | LCD_S_E | LCD_S_D | LCD_S_F); //1st digit (LCD_S_G | LCD_S_E | LCD_S_D  | LCD_S_F)
+	LCD->WF8B[LCD_Front_Pin[1]] = (LCD_S_A );															//(LCD_S_A | LCD_S_B | LCD_S_C)
 	
 	LCD->WF8B[LCD_Front_Pin[2]] = (LCD_S_E | LCD_S_G); //2nd digit
 	LCD->WF8B[LCD_Front_Pin[3]] = (LCD_C);
@@ -112,6 +112,33 @@ void slcdErr(uint8_t number){
 		default:   //as default display 'r'
 			LCD->WF8B[LCD_Front_Pin[6]] = (LCD_S_E | LCD_S_G);
 			LCD->WF8B[LCD_Front_Pin[7]] = (LCD_C);
+			break;
+	}
+}
+void Winner(uint8_t number){
+		slcdClear();
+		switch(number){  //4 digit depends on provided number
+		case 0x00:
+			LCD->WF8B[LCD_Front_Pin[0]] = (LCD_S_G | LCD_S_E | LCD_S_F); //1st digit 
+			LCD->WF8B[LCD_Front_Pin[1]] = (LCD_S_A | LCD_S_B);
+			LCD->WF8B[LCD_Front_Pin[2]] = (0);  //TASK 2.5 - replace ZZZ with segment definition
+			LCD->WF8B[LCD_Front_Pin[3]] = (LCD_S_B | LCD_S_C);
+			LCD->WF8B[LCD_Front_Pin[4]] = (LCD_S_G | LCD_S_E | LCD_S_F); //1st digit 
+			LCD->WF8B[LCD_Front_Pin[5]] = (LCD_S_A | LCD_S_B);
+			LCD->WF8B[LCD_Front_Pin[6]] = (LCD_S_D | LCD_S_E | LCD_S_G);  //TASK 2.5 - replace ZZZ with segment definition
+			LCD->WF8B[LCD_Front_Pin[7]] = (LCD_S_A | LCD_S_B);
+		break;
+		case 0x01:
+			LCD->WF8B[LCD_Front_Pin[0]] = (LCD_S_G | LCD_S_E | LCD_S_F);  
+			LCD->WF8B[LCD_Front_Pin[1]] = (LCD_S_A | LCD_S_B);
+			LCD->WF8B[LCD_Front_Pin[2]] = (0); 
+			LCD->WF8B[LCD_Front_Pin[3]] = (LCD_S_B | LCD_S_C);
+			break;
+		case 0x02:
+			LCD->WF8B[LCD_Front_Pin[4]] = (LCD_S_G | LCD_S_E | LCD_S_F); 
+			LCD->WF8B[LCD_Front_Pin[5]] = (LCD_S_A | LCD_S_B);
+			LCD->WF8B[LCD_Front_Pin[6]] = (LCD_S_D | LCD_S_E | LCD_S_G);  
+			LCD->WF8B[LCD_Front_Pin[7]] = (LCD_S_A | LCD_S_B);
 			break;
 	}
 }
